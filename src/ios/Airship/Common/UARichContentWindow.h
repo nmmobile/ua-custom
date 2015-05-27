@@ -30,23 +30,13 @@
  */
 @protocol UARichContentWindow <NSObject>
 
-@optional
+@required
 
 /**
  * Closes the window.
  *
  * @param animated Indicates whether to animate the transition.
- * @deprecated as of 5.1.0. Use closeWebView:animated: instead. Will only be called
- * if closeWebView:animated: is undefined.
  */
-- (void)closeWindow:(BOOL)animated __attribute__((deprecated("As of version 5.1.0")));
-
-/**
- * Closes the webview.
- *
- * @param webView The web view to close.
- * @param animated Indicates whether to animate the transition.
- */
-- (void)closeWebView:(UIWebView *)webView animated:(BOOL)animated;
+- (void)closeWindow:(BOOL)animated;
 
 @end
