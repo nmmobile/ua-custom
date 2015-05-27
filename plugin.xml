@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.urbanairship.phonegap.uacustom"
-    version="2.7.2">
+    version="2.7.5">
 
     <name>Urban Airship Push Notification Plugin</name>
     
@@ -22,6 +22,8 @@
 
     <!-- android -->
     <platform name="android">
+
+        <hook type="after_prepare" src="scripts/remove_files.js" />
        
         <config-file target="res/xml/config.xml" parent="/widget">
             <feature name="PushNotificationPlugin">
@@ -134,13 +136,16 @@
         <!-- UA SDK -->
         <framework src="src/android/urbanairship-lib" custom="true" />
 
-        <!--<framework src="src/android/google-play-services" custom="true" />-->
+        <framework src="src/android/google-play-services" custom="true" />
 
 
     </platform>
     
     <!-- ios -->
     <platform name="ios">
+        
+        <hook type="after_prepare" src="scripts/copy_resources.js" />
+        
         <config-file target="config.xml" parent="/widget">
              <feature name="PushNotificationPlugin">
                 <param name="ios-package" value="PushNotificationPlugin" />
