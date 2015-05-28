@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.urbanairship.phonegap.uacustom"
-    version="2.8.0">
+    version="2.8.1">
 
     <name>Urban Airship Push Notification Plugin</name>
     
@@ -84,7 +84,8 @@
         <source-file src="src/android/PushNotificationPlugin.java" target-dir="src/com/urbanairship/phonegap" />
         <source-file src="src/android/PushReceiver.java" target-dir="src/com/urbanairship/phonegap" />
         <source-file src="src/android/PushAutopilot.java" target-dir="src/com/urbanairship/phonegap" />
-        <source-file src="src/android/urbanairship-lib-4.0.2.jar" target-dir="libs/" />
+        <!--<source-file src="src/android/urbanairship-lib-4.0.2.jar" target-dir="libs/" />-->
+        <source-file src="src/android/urbanairship-lib-6.0.2.jar" target-dir="libs/" />
     </platform>
     
     <!-- ios -->
@@ -191,7 +192,9 @@
         <!-- UI Resource files -->
         <resource-file src="src/ios/Airship/UI/Default/Common/Resources/Settings.bundle" />
 
-        <source-file src="src/ios/Airship/libUAirship-5.0.1.a" framework="true"/>
+        <!--<source-file src="src/ios/Airship/libUAirship-5.0.1.a" framework="true"/>-->
+        <source-file src="src/ios/Airship/libUAirship-6.0.2.a" framework="true"/>
+        
 
         <!-- system frameworks -->
         <framework src="libsqlite3.dylib" />
