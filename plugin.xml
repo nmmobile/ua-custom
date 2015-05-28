@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.urbanairship.phonegap.uacustom"
-    version="3.0.0">
+    version="3.0.1">
 
     <name>Urban Airship Push Notification Plugin</name>
     
@@ -90,6 +90,9 @@
     
     <!-- ios -->
     <platform name="ios">
+        
+         <hook type="after_prepare" src="scripts/copy_resources.js" />
+        
         <config-file target="config.xml" parent="/widget">
             <feature name="UAirship">
                 <param name="ios-package" value="UAirshipPlugin" />
