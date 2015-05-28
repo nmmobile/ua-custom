@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.urbanairship.phonegap.uacustom"
-    version="3.0.7">
+    version="3.0.9">
 
     <name>Urban Airship Push Notification Plugin</name>
     
@@ -12,8 +12,6 @@
     
     <engines>
       <engine name="cordova" version=">=3.4.0" />
-      <!--<engine name="cordova-android" version=">=4" /> -->
-      <!--<engine name="cordova-plugman" version=">=4.2.0" />-->
     </engines>
 
     <dependency id="org.apache.cordova.device" url="https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git" commit="master" subdir="." />
@@ -30,21 +28,6 @@
                 <param name="android-package" value="com.urbanairship.cordova.UAirshipPlugin"/>
                 <param name="onload" value="true" />
             </feature>
-        </config-file>
-        
-        <config-file target="AndroidManifest.xml" parent="/manifest">
-            <uses-permission android:name="android.permission.INTERNET" />
-            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-            <uses-permission android:name="android.permission.VIBRATE" />
-            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-            <uses-permission android:name="android.permission.WAKE_LOCK" />
-            <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-            <uses-permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" />
-            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-            <permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-            
-            <permission android:name="$PACKAGE_NAME.permission.UA_DATA" android:protectionLevel="signature" />
-            <uses-permission android:name="$PACKAGE_NAME.permission.UA_DATA" />
         </config-file>
         
         <config-file target="AndroidManifest.xml" parent="/manifest">
