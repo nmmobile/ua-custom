@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.urbanairship.phonegap.uacustom"
-    version="2.8.6">
+    version="2.8.7">
 
     <name>Urban Airship Push Notification Plugin</name>
     
@@ -179,7 +179,7 @@
         <header-file src="src/ios/Airship/Common/UAWebViewDelegate.h" />
         <header-file src="src/ios/Airship/Common/UARegionEvent.h" />
         <header-file src="src/ios/Airship/Common/UAProximityRegion.h" />
-        <header-file src="src/ios/Airship/Common/UAInAppDisplayEvent.h" />
+        <!--<header-file src="src/ios/Airship/Common/UAInAppDisplayEvent.h" />
         <header-file src="src/ios/Airship/Common/UAInAppMessage.h" />
         <header-file src="src/ios/Airship/Common/UAInAppMessaging.h" />
         <header-file src="src/ios/Airship/Common/UAInAppMessageButtonActionBinding.h" />
@@ -189,7 +189,7 @@
         <header-file src="src/ios/Airship/Common/UAInAppMessageControllerDelegate.h" />
         <header-file src="src/ios/Airship/Common/UAInAppMessageView.h" />
         <header-file src="src/ios/Airship/Common/UAInAppResolutionEvent.h" />
-        <header-file src="src/ios/Airship/Common/UAIncommingInAppMessageAction.h" />
+        <header-file src="src/ios/Airship/Common/UAIncommingInAppMessageAction.h" />-->
 
 
 
