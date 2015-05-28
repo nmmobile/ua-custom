@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.urbanairship.phonegap.uacustom"
-    version="2.8.4">
+    version="2.8.5">
 
     <name>Urban Airship Push Notification Plugin</name>
     
@@ -101,6 +101,8 @@
         <source-file src="src/ios/PushNotificationPlugin.m" />
 
         <!-- Common header files -->
+        <header-file src="src/ios/Airship/AirshipLib.h"  />
+        
         <header-file src="src/ios/Airship/Common/UAAnalytics.h"  />
         <header-file src="src/ios/Airship/Common/UAAnalyticsDBManager.h"  />
         <header-file src="src/ios/Airship/Common/UAAppDelegate.h"  />
