@@ -1,5 +1,5 @@
 /*
- Copyright 2009-2014 Urban Airship Inc. All rights reserved.
+ Copyright 2009-2015 Urban Airship Inc. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -7,11 +7,11 @@
  1. Redistributions of source code must retain the above copyright notice, this
  list of conditions and the following disclaimer.
 
- 2. Redistributions in binaryform must reproduce the above copyright notice,
+ 2. Redistributions in binary form must reproduce the above copyright notice,
  this list of conditions and the following disclaimer in the documentation
- and/or other materials provided withthe distribution.
+ and/or other materials provided with the distribution.
 
- THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC``AS IS'' AND ANY EXPRESS OR
+ THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC ``AS IS'' AND ANY EXPRESS OR
  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  EVENT SHALL URBAN AIRSHIP INC OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
@@ -58,13 +58,13 @@
  * The production status of this application. This may be set directly, or it may be determined
  * automatically if the detectProvisioningMode flag is set to `YES`.
  */
-@property (nonatomic, assign) BOOL inProduction;
+@property (nonatomic, assign, getter=isInProduction) BOOL inProduction;
 
 /**
  * Toggles Urban Airship analytics. Defaults to `YES`. If set to `NO`, many UA features will not be
  * available to this application.
  */
-@property (nonatomic, assign) BOOL analyticsEnabled;
+@property (nonatomic, assign, getter=isAnalyticsEnabled) BOOL analyticsEnabled;
 
 ///---------------------------------------------------------------------------------------
 /// @name Configuration Values
@@ -107,6 +107,7 @@
 @property (nonatomic, assign) UALogLevel productionLogLevel;
 
 
+
 /**
  * The size in MB for the UA Disk Cache.  Defaults to 100.
  *
@@ -129,7 +130,14 @@
  * in application:didFinishLaunchingWithOptions: and forward all notification-related app delegate
  * calls to UAPush and UAInbox.
  */
-@property (nonatomic, assign) BOOL automaticSetupEnabled;
+@property (nonatomic, assign, getter=isAutomaticSetupEnabled) BOOL automaticSetupEnabled;
+
+/**
+ * An array of UAWhitelist entry strings.
+ *
+ * @note See UAWhitelist for pattern entry syntax.
+ */
+@property (nonatomic, strong) NSArray *whitelist;
 
 ///---------------------------------------------------------------------------------------
 /// @name Advanced Configuration Options
@@ -154,16 +162,6 @@
  */
 @property (nonatomic, assign) BOOL detectProvisioningMode;
 
-/**
- * If set to `YES`, the app will clear all keychain user information every time the app starts.
- * This is designed for development mode only.
- *
- * @deprecated As of version 5.0. To clear the keychain once during the next
- * application start, use the settings bundle to set YES for the key
- * "com.urbanairship.reset_keychain" in standard user defaults.
- */
-@property (nonatomic, assign) BOOL clearKeychain __attribute__((deprecated("As of version 5.0.0")));
-
 
 /**
  * The Urban Airship device API url. This option is reserved for internal debugging.
@@ -181,6 +179,25 @@
  */
 @property (nonatomic, copy) NSString *landingPageContentURL;
 
+
+/**
+ * If set to `YES`, the Urban Airship user will be cleared if the application is
+ * restored on a different device from an encrypted backup.
+ *
+ * Defaults to 'NO'.
+ */
+@property (nonatomic, assign) BOOL clearUserOnAppRestore;
+
+/**
+ * If set to `YES`, the application will clear the previous named user ID on a
+ * re-install. Defaults to `NO`.
+ */
+@property (nonatomic, assign) BOOL clearNamedUserOnAppRestore;
+
+/**
+ * Dictionary of custom config values.
+ */
+@property (nonatomic, copy) NSDictionary *customConfig;
 
 ///---------------------------------------------------------------------------------------
 /// @name Factory Methods
