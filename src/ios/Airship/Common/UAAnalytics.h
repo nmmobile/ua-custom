@@ -1,5 +1,5 @@
 /*
- Copyright 2009-2015 Urban Airship Inc. All rights reserved.
+ Copyright 2009-2014 Urban Airship Inc. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -7,11 +7,11 @@
  1. Redistributions of source code must retain the above copyright notice, this
  list of conditions and the following disclaimer.
 
- 2. Redistributions in binary form must reproduce the above copyright notice,
+ 2. Redistributions in binaryform must reproduce the above copyright notice,
  this list of conditions and the following disclaimer in the documentation
- and/or other materials provided with the distribution.
+ and/or other materials provided withthe distribution.
 
- THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC ``AS IS'' AND ANY EXPRESS OR
+ THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC``AS IS'' AND ANY EXPRESS OR
  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  EVENT SHALL URBAN AIRSHIP INC OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
@@ -24,7 +24,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @class UAEvent;
 @class UAConfig;
@@ -36,35 +35,38 @@
 @interface UAAnalytics : NSObject
 
 /**
- * The conversion send ID.
+ * The conversion send Id.
  */
-@property (nonatomic, copy, readonly) NSString *conversionSendID;
+@property (nonatomic, copy, readonly) NSString *conversionSendId;
 
 /**
- * The conversion rich push ID.
+ * The conversion rich push Id.
  */
-@property (nonatomic, copy, readonly) NSString *conversionRichPushID;
+@property (nonatomic, copy, readonly) NSString *conversionRichPushId;
 
 /**
- * The current session ID.
+ * The current session Id.
  */
-@property (nonatomic, copy, readonly) NSString *sessionID;
+@property (nonatomic, copy, readonly) NSString *sessionId;
 
 /**
  * The oldest event time as an NSTimeInterval.
  */
 @property (nonatomic, assign, readonly) NSTimeInterval oldestEventTime;
 
+
 /**
- * Analytics enable flag. Disabling analytics will delete any locally stored events
- * and prevent any events from uploading. Features that depend on analytics being
- * enabled may not work properly if it's disabled (reports, region triggers,
- * location segmentation, push to local time).
- *
- * Note: This property will always return `NO` if analytics is disabled in
- * UAConfig.
+ * Initializes with the specified airshipConfig file.
+ * @param airshipConfig The 'AirshipConfig.plist' file
+ * @param dataStore The shared preference data store.
  */
-@property (nonatomic, assign, getter=isEnabled) BOOL enabled;
+- (instancetype)initWithConfig:(UAConfig *)airshipConfig dataStore:(UAPreferenceDataStore *)dataStore;
+
+/**
+ * Delays the next analytics send.
+ * @param time The number of seconds to delay the send opertation.
+ */
+- (void)delayNextSend:(NSTimeInterval)time;
 
 /**
  * Triggers an analytics event.
@@ -83,6 +85,6 @@
  * Date representing the last attempt to send analytics.
  * @return NSDate representing the last attempt to send analytics
  */
-- (NSDate *)lastSendTime;
+- (NSDate*)lastSendTime;
 
 @end

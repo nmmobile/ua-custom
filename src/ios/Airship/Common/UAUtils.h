@@ -1,5 +1,5 @@
 /*
- Copyright 2009-2015 Urban Airship Inc. All rights reserved.
+ Copyright 2009-2014 Urban Airship Inc. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -7,9 +7,9 @@
  1. Redistributions of source code must retain the above copyright notice, this
  list of conditions and the following disclaimer.
 
- 2. Redistributions in binary form must reproduce the above copyright notice,
+ 2. Redistributions in binaryform must reproduce the above copyright notice,
  this list of conditions and the following disclaimer in the documentation
- and/or other materials provided with the distribution.
+ and/or other materials provided withthe distribution.
 
  THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC ``AS IS'' AND ANY EXPRESS OR
  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -24,7 +24,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @class UAHTTPRequest;
 
@@ -60,6 +59,9 @@
 /// @name UAHTTP Authenticated Request Helpers
 ///---------------------------------------------------------------------------------------
 
++ (UAHTTPRequest *)UAHTTPUserRequestWithURL:(NSURL *)url method:(NSString *)method;
+
++ (UAHTTPRequest *)UAHTTPRequestWithURL:(NSURL *)url method:(NSString *)method;
 
 + (void)logFailedRequest:(UAHTTPRequest *)request withMessage:(NSString *)message;
 
@@ -98,24 +100,12 @@
 
 /**
  * Creates an ISO dateFormatter (UTC) with the following attributes:
- * locale set to 'en_US_POSIX', timestyle set to 'NSDateFormatterFullStyle',
+ * locale set to 'en_US_POSIX', timestyle set to 'NSDATEFormatterFullStyle',
  * date format set to 'yyyy-MM-dd HH:mm:ss'.
  *
  * @return A DateFormatter with the default attributes.
  */
 + (NSDateFormatter *)ISODateFormatterUTC;
-
-/**
- * Creates an ISO dateFormatter (UTC) with the following attributes:
- * locale set to 'en_US_POSIX', timestyle set to 'NSDateFormatterFullStyle',
- * date format set to 'yyyy-MM-dd'T'HH:mm:ss'. The formatter returned by this method 
- * is identical to that of `ISODateFormatterUTC`, except that the format matches the optional 
- * `T` delimiter between date and time.
- *
- * @return A DateFormatter with the default attributes, matching the optional `T` delimiter.
- */
-+ (NSDateFormatter *)ISODateFormatterUTCWithDelimiter;
-
 
 ///---------------------------------------------------------------------------------------
 /// @name File management

@@ -1,5 +1,5 @@
 /*
- Copyright 2009-2015 Urban Airship Inc. All rights reserved.
+ Copyright 2009-2014 Urban Airship Inc. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -7,9 +7,9 @@
  1. Redistributions of source code must retain the above copyright notice, this
  list of conditions and the following disclaimer.
 
- 2. Redistributions in binary form must reproduce the above copyright notice,
+ 2. Redistributions in binaryform must reproduce the above copyright notice,
  this list of conditions and the following disclaimer in the documentation
- and/or other materials provided with the distribution.
+ and/or other materials provided withthe distribution.
 
  THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC ``AS IS'' AND ANY EXPRESS OR
  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -31,21 +31,21 @@
 @interface UAInboxUtils : NSObject
 
 /**
- *  Retrieves an inbox message ID from a notification dictionary
+ *  Retrieves a rich push message ID from a notification dictionary
  *
  * @param notification The notification dictionary.
- * @return a message ID if found, nil otherwise
+ * @return a rich push message ID if found, nil otherwise
  */
-+ (NSString *)inboxMessageIDFromNotification:(NSDictionary *)notification;
++ (NSString *)getRichPushMessageIDFromNotification:(NSDictionary *)notification;
 
 
 /**
- * Retrieves an inbox message ID from an NSArray containing the ID
+ * Retrieves a rich push message ID from an NSArray containing the ID
  * or if the value is the ID.
  *
- * @param values The value of the inbox message ID from a notification.
- * @return a message ID if found, nil otherwise
+ * @param richPushValues The value of the rich push id from a notification.
+ * @return a rich push message ID if found, nil otherwise
  */
-+ (NSString *)inboxMessageIDFromValue:(id)values;
++ (NSString *)getRichPushMessageIDFromValue:(id)richPushValues;
 
 @end

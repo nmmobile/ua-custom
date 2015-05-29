@@ -1,5 +1,5 @@
 /*
- Copyright 2009-2015 Urban Airship Inc. All rights reserved.
+ Copyright 2009-2014 Urban Airship Inc. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -7,11 +7,11 @@
  1. Redistributions of source code must retain the above copyright notice, this
  list of conditions and the following disclaimer.
 
- 2. Redistributions in binary form must reproduce the above copyright notice,
+ 2. Redistributions in binaryform must reproduce the above copyright notice,
  this list of conditions and the following disclaimer in the documentation
- and/or other materials provided with the distribution.
+ and/or other materials provided withthe distribution.
 
- THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC ``AS IS'' AND ANY EXPRESS OR
+ THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC``AS IS'' AND ANY EXPRESS OR
  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  EVENT SHALL URBAN AIRSHIP INC OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
@@ -42,6 +42,8 @@
 */
 @property (nonatomic, strong) UASQLite *db;
 
+SINGLETON_INTERFACE(UAAnalyticsDBManager);
+
 /**
  * Resets the database
  */
@@ -51,9 +53,9 @@
  * Adds analytics event to sqlite DB
  *
  * @param event UAEvent to add
- * @param sessionID Session ID string
+ * @param sessionId Session ID string
  */
-- (void)addEvent:(UAEvent *)event withSessionID:(NSString *)sessionID;
+- (void)addEvent:(UAEvent *)event withSessionId:(NSString *)sessionId;
 
 /**
  * Gets analytics events via sqlite query
@@ -66,17 +68,17 @@
 /**
  * Gets analytics events via sqlite query using event ID
  *
- * @param eventID Analytics event ID string
+ * @param eventId Analytics event ID string
  * @return An array of analytics events from the DB
  */
-- (NSArray *)getEventByEventID:(NSString *)eventID;
+- (NSArray *)getEventByEventId:(NSString *)eventId;
 
 /**
  * Deletes individual analytics events from sqlite DB using event ID
  *
- * @param eventID Analytics event ID string
+ * @param eventId Analytics event ID string
  */
-- (void)deleteEvent:(NSNumber *)eventID;
+- (void)deleteEvent:(NSNumber *)eventId;
 
 /**
  * Deletes an array of analytics events from sqlite DB
@@ -88,9 +90,9 @@
 /**
  * Deletes analytics events from sqlite DB using session ID
  *
- * @param sessionID Session ID string of the events to be deleted
+ * @param sessionId Session ID string of the events to be deleted
  */
-- (void)deleteBySessionID:(NSString *)sessionID;
+- (void)deleteBySessionId:(NSString *)sessionId;
 
 /**
  * Deletes analytics events from sqlite DB using oldest session ID

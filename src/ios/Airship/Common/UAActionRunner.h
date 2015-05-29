@@ -1,5 +1,5 @@
 /*
- Copyright 2009-2015 Urban Airship Inc. All rights reserved.
+ Copyright 2009-2014 Urban Airship Inc. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -7,11 +7,11 @@
  1. Redistributions of source code must retain the above copyright notice, this
  list of conditions and the following disclaimer.
 
- 2. Redistributions in binary form must reproduce the above copyright notice,
+ 2. Redistributions in binaryform must reproduce the above copyright notice,
  this list of conditions and the following disclaimer in the documentation
- and/or other materials provided with the distribution.
+ and/or other materials provided withthe distribution.
 
- THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC ``AS IS'' AND ANY EXPRESS OR
+ THIS SOFTWARE IS PROVIDED BY THE URBAN AIRSHIP INC``AS IS'' AND ANY EXPRESS OR
  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  EVENT SHALL URBAN AIRSHIP INC OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
@@ -36,121 +36,40 @@
 /**
  * Runs a registered action with the given name.
  *
- * If the action is not registered the completion handler
- * will be called immediately with [UAActionResult emptyResult]
- *
- * @param actionName The name of the action to run
- * @param value The action's argument value.
- * @param situation The action's situation.
- */
-+ (void)runActionWithName:(NSString *)actionName
-                    value:(id)value
-                situation:(UASituation)situation;
-
-/**
- * Runs a registered action with the given name.
- *
- * If the action is not registered the completion handler
- * will be called immediately with [UAActionResult emptyResult]
- *
- * @param actionName The name of the action to run
- * @param value The action's argument value.
- * @param situation The action's situation.
- * @param metadata The action's metadata.
- */
-+ (void)runActionWithName:(NSString *)actionName
-                    value:(id)value
-                situation:(UASituation)situation
-                 metadata:(NSDictionary *)metadata;
-
-/**
- * Runs a registered action with the given name.
- *
- * If the action is not registered the completion handler
- * will be called immediately with [UAActionResult emptyResult]
- *
- * @param actionName The name of the action to run
- * @param value The action's argument value.
- * @param situation The action's situation.
- * @param completionHandler Optional completion handler to run when the action completes.
- */
-+ (void)runActionWithName:(NSString *)actionName
-                    value:(id)value
-                situation:(UASituation)situation
-        completionHandler:(UAActionCompletionHandler)completionHandler;
-
-/**
- * Runs a registered action with the given name.
- *
  * If the action is not registered the completion handler 
  * will be called immediately with [UAActionResult emptyResult]
  *
  * @param actionName The name of the action to run
- * @param value The action's argument value.
- * @param situation The action's situation.
- * @param metadata The action's metadata.
- * @param completionHandler Optional completion handler to run when the action completes.
+ * @param arguments The action's arguments
+ * @param completionHandler CompletionHandler to pass to the action.
  */
 + (void)runActionWithName:(NSString *)actionName
-                value:(id)value
-            situation:(UASituation)situation
-             metadata:(NSDictionary *)metadata
-    completionHandler:(UAActionCompletionHandler)completionHandler;
-
-
+                withArguments:(UAActionArguments *)arguments
+        withCompletionHandler:(UAActionCompletionHandler)completionHandler;
 
 /**
  * Runs an action.
  *
  * @param action The action to run
- * @param value The action's argument value.
- * @param situation The action's situation.
+ * @param arguments The action's arguments
+ * @param completionHandler CompletionHandler to pass to the action.
  */
 + (void)runAction:(UAAction *)action
-            value:(id)value
-        situation:(UASituation)situation;
+    withArguments:(UAActionArguments *)arguments
+withCompletionHandler:(UAActionCompletionHandler)completionHandler;
 
 /**
- * Runs an action.
+ * Runs a map of actionNames and action arguments.
  *
- * @param action The action to run
- * @param value The action's argument value.
- * @param situation The action's situation.
- * @param metadata The action's metadata.
- */
-+ (void)runAction:(UAAction *)action
-            value:(id)value
-        situation:(UASituation)situation
-         metadata:(NSDictionary *)metadata;
-
-/**
- * Runs an action.
+ * The results of all the actions will be aggregated into a 
+ * single UAAggregateActionResult.
  *
- * @param action The action to run
- * @param value The action's argument value.
- * @param situation The action's situation.
- * @param completionHandler Optional completion handler to run when the action completes.
+ * @param actions The map of action names and arguments.
+ * @param completionHandler CompletionHandler to call after all the
+ * actions have completed. The result will be the aggregated result
+ * of all the actions run.
  */
-+ (void)runAction:(UAAction *)action
-            value:(id)value
-        situation:(UASituation)situation
-completionHandler:(UAActionCompletionHandler)completionHandler;
-
-
-/**
- * Runs an action.
- *
- * @param action The action to run
- * @param value The action's argument value.
- * @param situation The action's situation.
- * @param metadata The action's metadata.
- * @param completionHandler Optional completion handler to run when the action completes.
- */
-+ (void)runAction:(UAAction *)action
-            value:(id)value
-        situation:(UASituation)situation
-         metadata:(NSDictionary *)metadata
-completionHandler:(UAActionCompletionHandler)completionHandler;
-
++ (void)runActions:(NSDictionary *)actions
+ withCompletionHandler:(UAActionCompletionHandler)completionHandler;
 
 @end
