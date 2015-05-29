@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.urbanairship.phonegap.uacustom"
-    version="3.1.5">
+    version="3.1.6">
 
     <name>Urban Airship Push Notification Plugin</name>
     
@@ -12,7 +12,6 @@
     
     <engines>
       <engine name="cordova" version=">=3.4.0" />
-      <engine name="cordova-android" version=">=4" />
       <engine name="cordova-plugman" version=">=4.2.0" />
 
     </engines>
