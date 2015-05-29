@@ -27,7 +27,6 @@
 
 @class UAEvent;
 @class UAConfig;
-@class UAPreferenceDataStore;
 
 /**
  * The UAAnalytics object provides an interface to the Urban Airship Analytics API.
@@ -58,9 +57,8 @@
 /**
  * Initializes with the specified airshipConfig file.
  * @param airshipConfig The 'AirshipConfig.plist' file
- * @param dataStore The shared preference data store.
  */
-- (instancetype)initWithConfig:(UAConfig *)airshipConfig dataStore:(UAPreferenceDataStore *)dataStore;
+- (instancetype)initWithConfig:(UAConfig *)airshipConfig;
 
 /**
  * Delays the next analytics send.

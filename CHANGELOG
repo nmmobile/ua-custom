@@ -1,34 +1,3 @@
-================================
-Version 2.7.3 - January 28, 2015
-================================
-- Updated Urban Airship Android Library to 5.1.5
-
-=================================
-Version 2.7.2 - December 31, 2014
-=================================
-- Updated Urban Airship Android Library to 5.1.4
-
-=================================
-Version 2.7.1 - December 15, 2014
-=================================
-- Updated Urban Airship Android Library to 5.1.3
-
-================================
-Version 2.7.0 - December 8, 2014
-================================
-- Updated Urban Airship iOS Library to 5.1.0
-- Updated Urban Airship Android Library to 5.1.2
-
-================================
-Version 2.6.0 - November 5, 2014
-================================
-- Updated Urban Airship Android Library to 5.1.0
-
-==================================
-Version 2.5.1 - November 3, 2014
-==================================
-- Removed writeJavascript calls for compatibility with Cordova 4.0
-
 ==================================
 Version 2.5.0 - September 22, 2014
 ==================================
